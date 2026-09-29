@@ -5,18 +5,18 @@
 
 ## 開発環境
 
-- **画面構築**: Vue 3 + Vite
-- **アプリ化**: Capacitor（iOS / Android 両対応）
+- **アプリ本体・画面構築**: Flutter（Dart）
+- **QRスキャン**: `mobile_scanner`
+- **状態管理**: `provider`
 - **バックエンド**: Firebase（Firestore / Authentication / Storage）※未設定、次のステップ
-- **QRスキャン**: `@capacitor-mlkit/barcode-scanning`（未導入、Week2で検証予定）
-- **歩数取得**: HealthKit / Health Connect 用プラグイン（未導入、Week2で検証予定・最大の技術リスク）
+- **歩数取得**: HealthKit / Health Connect 対応パッケージ（未導入、検証予定・最大の技術リスク）
 
 ## 今の状態
 
-画面遷移と全体の流れを確認できる状態です。データはすべて仮のサンプル・ローカルの状態管理（`src/store/appState.js`）で、Firebase にはまだ繋がっていません。
+画面遷移と全体の流れを確認できる状態です。データはすべて仮のサンプル・アプリ内の状態管理（`lib/models/app_state.dart`）で、Firebase にはまだ繋がっていません。
 
-- `スタンプ帳`（ホーム）: 位（ランク）・進捗・獲得済みスタンプ一覧
-- `QR読取`: 実際のカメラ読み取りはまだ。お店を選ぶとスタンプ獲得のデモ動作
+- `スタンプ帳`: 位（ランク）・進捗・獲得済みスタンプ一覧
+- `QR読取`: カメラでの読み取りに対応（`mobile_scanner`）。お店を手動で選ぶデモ動作も残してある
 - `クイズ`: 固定の1問。正解すると次のスポット候補からクーポンを選べる
 - `クーポン`: 獲得済みクーポンの一覧
 - `地図`: 実際の地図は未実装。スポット一覧のみ
@@ -24,26 +24,23 @@
 ## 開発の始め方
 
 ```bash
-npm install
-npm run dev       # ブラウザでプレビュー（http://localhost:5173）
-npm run build      # 本番ビルド
+flutter pub get
+flutter run -d chrome   # ブラウザでプレビュー
+flutter test            # 基本的な動作確認テスト
 ```
 
-## Capacitorでアプリ化する（次のステップ）
+実機・シミュレーターで動かす場合：
 
 ```bash
-npm run build
-npx cap add ios       # 要 Xcode（Command Line Toolsだけでは不可）
-npx cap add android    # 要 Android Studio
-npx cap sync
-npx cap open ios        # Xcodeで開く
-npx cap open android    # Android Studioで開く
+flutter run             # 接続中の実機 / 起動中のシミュレーターを自動選択
 ```
+
+- iOSでビルドするには Xcode が必要（Mac限定）
+- Androidでビルドするには Android Studio（Android SDK）が必要
 
 ## やること
 
-- [ ] Firebaseプロジェクトを作成し、Firestore/Authenticationを設定
-- [ ] `@capacitor-mlkit/barcode-scanning` を導入し、実際のQR読み取りに置き換える
-- [ ] 歩数取得プラグインを検証し、デモボタンを実データに置き換える
+- [ ] Firebaseプロジェクトを作成し、Firestore/Authenticationを設定（`firebase_core` / `cloud_firestore` パッケージを追加）
+- [ ] 歩数取得パッケージを検証し、デモボタンを実データに置き換える
 - [ ] スポット・クイズ・クーポンのデータをFirestoreから読み込むように変更
 - [ ] UIの調整（文字サイズ・配色・1画面1情報）
