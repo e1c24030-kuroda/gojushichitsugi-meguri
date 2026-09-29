@@ -10,7 +10,7 @@
 | Git | コードのダウンロード・共有 | 必須 |
 | Flutter SDK **3.47.5 以上**（Dart 3.13.4 以上） | アプリのビルド・実行 | 必須 |
 | Google Chrome | ブラウザでアプリを確認する | 必須 |
-| VSCode ＋ 拡張機能「Flutter」 | コードの編集 | おすすめ |
+| VSCode ＋ 拡張機能「Flutter」 | コードの編集 | 任意 |
 | Xcode | iPhone で動かす（Mac のみ） | 任意 |
 | Android Studio | Android で動かす | 任意 |
 
