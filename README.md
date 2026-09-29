@@ -23,6 +23,8 @@
 
 ## 開発の始め方
 
+初めて環境を用意する人は [SETUP.md](SETUP.md) を見てください（Flutter のインストールから、アプリを動かすまでの手順）。
+
 ```bash
 flutter pub get
 flutter run -d chrome   # ブラウザでプレビュー
