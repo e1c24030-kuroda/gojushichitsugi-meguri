@@ -55,7 +55,7 @@ const List<Rank> ranks = [
   Rank(key: 'hikyaku', label: '飛脚', color: Color(0xFF8C8C8C), minKm: 110),
   Rank(key: 'tonya', label: '問屋', color: Color(0xFFC9A227), minKm: 220),
   Rank(key: 'honjin', label: '本陣', color: Color(0xFFC9A227), minKm: 330),
-  Rank(key: 'daimyo', label: '大名行列', color: Color(0xFFD4AF37), minKm: 440),
+  Rank(key: 'daimyo', label: '大名', color: Color(0xFFD4AF37), minKm: 440),
 ];
 
 class AppState extends ChangeNotifier {
