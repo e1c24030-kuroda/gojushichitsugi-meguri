@@ -30,6 +30,10 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>歩いた距離で宿場印の位を上げるために歩数を読み取ります</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>歩数データを書き込むことはありません</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
